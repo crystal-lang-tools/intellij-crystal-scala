@@ -1,0 +1,29 @@
+<idea-plugin>
+  <id>com.tsunderebug.crystal.scala</id>
+  <name>Crystal</name>
+  <version>1.0</version>
+  <vendor email="tsunderebug@tsunderebug.com" url="https://www.github.com/TsundereBug">Anthony Cerruti</vendor>
+
+  <description><![CDATA[
+      Provides support for the Crystal language in IntelliJ.
+    ]]></description>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+  <idea-version since-build="172.0"/>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+       on how to target different products -->
+  <!-- uncomment to enable plugin in all products
+  <depends>com.intellij.modules.lang</depends>
+  -->
+
+  <extensions defaultExtensionNs="com.intellij">
+    <fileTypeFactory implementation="com.tsunderebug.crystal.scala.lang.file.CrystalFileTypeFactory" />
+    <lang.parserDefinition implementationClass="com.tsunderebug.crystal.scala.lang.parse.CrystalParserDefinition" />
+  </extensions>
+
+  <actions>
+    <!-- Add your actions here -->
+  </actions>
+
+</idea-plugin>
