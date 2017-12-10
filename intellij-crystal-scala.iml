@@ -10,6 +10,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="com.lihaoyi:fastparse_2.12:1.0.0" level="project" />
-    <orderEntry type="library" name="scala-sdk-2.12.4" level="project" />
+    <orderEntry type="library" name="scala-sdk-2.12.4" level="application" />
   </component>
 </module>
