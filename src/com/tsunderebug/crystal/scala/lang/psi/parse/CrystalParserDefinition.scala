@@ -1,12 +1,14 @@
-package com.tsunderebug.crystal.scala.lang.parse
+package com.tsunderebug.crystal.scala.lang.psi.parse
 
 import com.intellij.lang.{ASTNode, ParserDefinition, PsiParser}
 import com.intellij.lexer.Lexer
 import com.intellij.openapi.project.Project
-import com.intellij.psi.{FileViewProvider, PsiElement, PsiFile}
 import com.intellij.psi.tree.{IFileElementType, TokenSet}
+import com.intellij.psi.{FileViewProvider, PsiElement, PsiFile}
 import com.tsunderebug.crystal.scala.lang.CrystalLanguage
 import com.tsunderebug.crystal.scala.lang.file.CrystalFile
+import com.tsunderebug.crystal.scala.lang.psi._
+import com.tsunderebug.crystal.scala.lang.psi.lex.CrystalLexer
 
 class CrystalParserDefinition extends ParserDefinition {
 
@@ -24,7 +26,9 @@ class CrystalParserDefinition extends ParserDefinition {
 
   override def getCommentTokens: TokenSet = TokenSet.create(Comment)
 
-  override def createParser(project: Project): PsiParser = ???
+  override def getWhitespaceTokens: TokenSet = TokenSet.create(Whitespace)
+
+  override def createParser(project: Project): PsiParser = new CrystalParser
 
 }
 

@@ -1,4 +1,4 @@
-package com.tsunderebug.crystal.scala.lang.parse
+package com.tsunderebug.crystal.scala.lang.psi
 
 import com.intellij.psi.tree.IElementType
 import com.tsunderebug.crystal.scala.lang.CrystalLanguage

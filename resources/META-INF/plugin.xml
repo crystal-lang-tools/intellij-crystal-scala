@@ -19,7 +19,8 @@
 
   <extensions defaultExtensionNs="com.intellij">
     <fileTypeFactory implementation="com.tsunderebug.crystal.scala.lang.file.CrystalFileTypeFactory" />
-    <lang.parserDefinition language="Crystal" implementationClass="com.tsunderebug.crystal.scala.lang.parse.CrystalParserDefinition" />
+    <lang.parserDefinition language="Crystal" implementationClass="com.tsunderebug.crystal.scala.lang.psi.parse.CrystalParserDefinition" />
+    <lang.syntaxHighlighterFactory language="Crystal" implementationClass="com.tsunderebug.crystal.scala.lang.psi.highlight.CrystalSyntaxHighlighterFactory" />
   </extensions>
 
   <actions>
