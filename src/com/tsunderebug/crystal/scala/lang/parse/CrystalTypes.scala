@@ -5,18 +5,13 @@ import fastparse.core
 
 object Parsers {
 
-  val all: core.Parser[CrystalTokenType with Product with Serializable, Char, String] = Ztring.p | Comment.c
+  val all: core.Parser[(Int, CrystalTokenType), Char, String] = Ztring.p | Comment.c
 
 }
 
-case class Ztring(c: String) extends CrystalTokenType("Strings") {
+case object Ztring extends CrystalTokenType("Strings") {
 
-  override def length: Int = c.length
-
-}
-object Ztring {
-
-  lazy val p: core.Parser[Ztring, Char, String] = (quote | paren | bracket | brace | angle).map(Ztring(_))
+  lazy val p: core.Parser[(Int, Ztring.type), Char, String] = (quote | paren | bracket | brace | angle).map((s) => (s.length, Ztring))
 
   lazy val quote: core.Parser[String, Char, String] = P( "\"" ~ (CharIn('\u0000' to ('"' - 1).toChar, ('"' + 1).toChar to '\uFFFF') | "\\\"").rep ~ "\"" ).!
   lazy val parenNest: core.Parser[Any, Char, String] = P( "(" ~ parenNest ~ ")" ) | P( CharIn('\u0000' to (')' - 1).toChar, (')' + 1).toChar to '\uFFFF') | "\\)" ).rep
@@ -30,13 +25,8 @@ object Ztring {
 
 }
 
-case class Comment(l: String) extends CrystalTokenType("Comment") {
+case object Comment extends CrystalTokenType("Comment") {
 
-  override def length: Int = l.length
-
-}
-object Comment {
-
-  lazy val c: core.Parser[Comment, Char, String] = P("#" ~ AnyChar.rep ~ End).!.map(Comment(_))
+  lazy val c: core.Parser[(Int, Comment.type), Char, String] = P("#" ~ AnyChar.rep ~ End).!.map((c) => (c.length, Comment))
 
 }

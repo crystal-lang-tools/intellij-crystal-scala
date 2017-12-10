@@ -10,7 +10,7 @@ class CrystalLexer() extends Lexer {
   var s: Int = _
   var e: Int = _
 
-  override def getTokenType: IElementType = Parsers.all.parse(c.toString, p.getOffset).get.value
+  override def getTokenType: IElementType = Parsers.all.parse(c.toString, p.getOffset).get.value._2
 
   override def restore(lexerPosition: LexerPosition): Unit = p = lexerPosition
 
@@ -33,7 +33,7 @@ class CrystalLexer() extends Lexer {
 
     override def getState: Int = p.getState
 
-    override def getOffset: Int = p.getOffset + getTokenType.asInstanceOf[CrystalTokenType].length
+    override def getOffset: Int = p.getOffset + Parsers.all.parse(c.toString, p.getOffset).get.value._1
 
   }
 
@@ -43,7 +43,7 @@ class CrystalLexer() extends Lexer {
 
   override def getState: Int = p.getState
 
-  override def getTokenEnd: Int = p.getOffset + getTokenType.asInstanceOf[CrystalTokenType].length
+  override def getTokenEnd: Int = p.getOffset + Parsers.all.parse(c.toString, p.getOffset).get.value._1
 
   override def getTokenStart: Int = p.getOffset
 

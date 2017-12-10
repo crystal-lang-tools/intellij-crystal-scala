@@ -16,13 +16,13 @@ class CrystalParserDefinition extends ParserDefinition {
 
   override def createFile(fileViewProvider: FileViewProvider): PsiFile = new CrystalFile(fileViewProvider)
 
-  override def getStringLiteralElements: TokenSet = TokenSet.create(Ztring(null))
+  override def getStringLiteralElements: TokenSet = TokenSet.create(Ztring)
 
   override def spaceExistanceTypeBetweenTokens(astNode: ASTNode, astNode1: ASTNode): ParserDefinition.SpaceRequirements = ParserDefinition.SpaceRequirements.MAY
 
   override def createLexer(project: Project): Lexer = new CrystalLexer()
 
-  override def getCommentTokens: TokenSet = TokenSet.create(new Comment(null))
+  override def getCommentTokens: TokenSet = TokenSet.create(Comment)
 
   override def createParser(project: Project): PsiParser = ???
 
