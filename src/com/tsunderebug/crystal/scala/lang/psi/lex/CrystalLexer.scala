@@ -26,6 +26,7 @@ class CrystalLexer() extends Lexer {
       } catch {
         case _: fastparse.core.ParseError[_, _] =>
           if(bhb contains p.getOffset) {
+            bhb.clear()
             (1, BadParse)
           } else {
             (-1, BadParse)

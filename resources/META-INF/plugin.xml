@@ -21,6 +21,7 @@
     <fileTypeFactory implementation="com.tsunderebug.crystal.scala.lang.file.CrystalFileTypeFactory" />
     <lang.parserDefinition language="Crystal" implementationClass="com.tsunderebug.crystal.scala.lang.psi.parse.CrystalParserDefinition" />
     <lang.syntaxHighlighterFactory language="Crystal" implementationClass="com.tsunderebug.crystal.scala.lang.psi.highlight.CrystalSyntaxHighlighterFactory" />
+    <moduleType id="CRYSTAL_MODULE_TYPE" implementationClass="com.tsunderebug.crystal.scala.ide.CrystalModuleType" />
   </extensions>
 
   <actions>

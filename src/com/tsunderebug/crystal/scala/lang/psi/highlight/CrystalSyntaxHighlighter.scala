@@ -5,7 +5,7 @@ import com.intellij.openapi.editor.{DefaultLanguageHighlighterColors, Highlighte
 import com.intellij.openapi.editor.colors.TextAttributesKey
 import com.intellij.openapi.fileTypes.SyntaxHighlighterBase
 import com.intellij.psi.tree.IElementType
-import com.tsunderebug.crystal.scala.lang.psi.{BadParse, Comment, False, Nil, True, Variable, Ztring}
+import com.tsunderebug.crystal.scala.lang.psi.{BadParse, Charr, Comment, False, Nil, True, Variable, Ztring}
 import com.tsunderebug.crystal.scala.lang.psi.lex.CrystalLexer
 
 class CrystalSyntaxHighlighter extends SyntaxHighlighterBase {
@@ -14,7 +14,7 @@ class CrystalSyntaxHighlighter extends SyntaxHighlighterBase {
     println(s"highlights $t")
     t match {
       case Variable => CrystalSyntaxHighlighter.variables
-      case Ztring => CrystalSyntaxHighlighter.strings
+      case Ztring | Charr => CrystalSyntaxHighlighter.strings
       case Comment => CrystalSyntaxHighlighter.comments
       case Nil | True | False => CrystalSyntaxHighlighter.keys
       case BadParse => CrystalSyntaxHighlighter.errors
